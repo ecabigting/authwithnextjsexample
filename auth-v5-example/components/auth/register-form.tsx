@@ -10,8 +10,8 @@ import { CardWrapper } from "./card-wrapper";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-import { login } from "@/actions/login";
 import { LoadingSpinner } from "../ui/spinner";
+import { register } from "@/actions/register";
 
 export const RegisterForm = () => {
 	const [error, setError] = useState<string | undefined>("");
@@ -30,7 +30,7 @@ export const RegisterForm = () => {
 		setError("");
 		setSuccess("");
 		startTransition(() => {
-			login(values).then((data) => {
+			register(values).then((data) => {
 				setError(data.error);
 				setSuccess(data.success);
 			});
