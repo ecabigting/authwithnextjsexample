@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { LoginSchema } from "@/schemas";
 
 export const getUserByEmail = async (email: string) => {
 	try {

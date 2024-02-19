@@ -1,6 +1,6 @@
 "use server";
 import * as z from "zod";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import { db } from "@/lib/db";
 import { RegisterSchema } from "@/schemas";
 import { getUserByEmail } from "@/data/user";
@@ -11,7 +11,7 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
 		return { error: "Invalid fields!" };
 	}
 	const { name, email, password } = validatedFields.data;
-	const hashedPassword = await bcrypt.hash(password, 256);
+	const hashedPassword = await bcryptjs.hash(password, 256);
 	const existingUser = await getUserByEmail(email);
 	if (existingUser) {
 		return { error: "Email already exist!" };
