@@ -10,13 +10,13 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
 	if (!validatedFields.success) {
 		return { error: "Invalid fields!" };
 	}
+
 	const { name, email, password } = validatedFields.data;
-	const hashedPassword = await bcryptjs.hash(password, 256);
+	const hashedPassword = await bcryptjs.hash(password, 10);
 	const existingUser = await getUserByEmail(email);
 	if (existingUser) {
 		return { error: "Email already exist!" };
 	}
-
 	await db.user.create({
 		data: {
 			name,
@@ -24,7 +24,6 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
 			password: hashedPassword,
 		},
 	});
-
 	// TODO: Send verification token email
 	return { success: "Registration Successful!" };
 };
