@@ -4,7 +4,6 @@ import { LoginSchema } from "./schemas";
 import { getUserByEmail } from "./data/user";
 import bcryptjs from "bcryptjs";
 import github from "next-auth/providers/github";
-import instagram from "next-auth/providers/instagram";
 import google from "next-auth/providers/google";
 
 export default {
