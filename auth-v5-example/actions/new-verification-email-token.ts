@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { getUserByEmail } from "@/data/user";
 import { getVerificationTokenByToken } from "@/data/verification-token";
 
-export const newVerifications = async (token: string) => {
+export const NewVerificationEmail = async (token: string) => {
 	const existingToken = await getVerificationTokenByToken(token);
 	if (!existingToken) {
 		return { error: "ErrID1: Invalid confirmation email link!" };

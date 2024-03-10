@@ -4,7 +4,7 @@ import { BeatLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
 import { CardWrapper } from "./card-wrapper";
 import { useCallback, useEffect, useState } from "react";
-import { newVerifications } from "@/actions/new-verification";
+import { NewVerificationEmail } from "@/actions/new-verification-email-token";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 
@@ -19,7 +19,7 @@ export const NewVerificationForm = () => {
 			setError("Missing Token!");
 			return;
 		}
-		newVerifications(token)
+		NewVerificationEmail(token)
 			.then((data) => {
 				setSuccess(data?.success);
 				setError(data?.error);
