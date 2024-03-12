@@ -27,7 +27,6 @@ export const ResetPasswordForm = () => {
 	const onFormSubmit = (values: z.infer<typeof ResetPasswordSchema>) => {
 		setError("");
 		setSuccess("");
-		console.log(values);
 		startTransition(() => {
 			ResetPassword(values).then((data) => {
 				setError(data?.error);
