@@ -14,6 +14,7 @@ import { login } from "@/actions/login";
 import { LoadingSpinner } from "../ui/spinner";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { logout } from "@/actions/logout";
 
 export const LoginForm = () => {
 	const searchParams = useSearchParams();
