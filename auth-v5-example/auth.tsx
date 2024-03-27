@@ -44,6 +44,10 @@ export const {
 	},
 	callbacks: {
 		async signIn({ user, account }) {
+			if (account?.provider === "google") {
+				console.log({ user });
+				console.log({ account });
+			}
 			if (account?.provider !== "credentials") return true;
 
 			const existingUser = await getUserByID(user.id as string);
